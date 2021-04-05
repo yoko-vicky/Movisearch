@@ -5,7 +5,7 @@ import configureStore from './store/configureStore';
 import AppRouter from './routers/AppRouter';
 import './assets/styles/style.scss';
 
-import storeMoviesData from './helpers/storeMoviesData';
+import getListData from './helpers/getListData';
 
 const store = configureStore();
 store.subscribe(() => {
@@ -14,12 +14,11 @@ store.subscribe(() => {
   console.log('MoviesStore:', movies);
   // eslint-disable-next-line no-console
   console.log('FiltersStore:', filters);
+  getListData(store, filters.title);
   // eslint-disable-next-line no-unused-vars
   // const visibleExpenses = getVisibleExpenses(expenses, filters);
   // console.log(visibleExpenses);
 });
-
-storeMoviesData(store);
 
 const jsx = (
   <Provider store={store}>
@@ -28,3 +27,4 @@ const jsx = (
 );
 
 ReactDOM.render(jsx, document.getElementById('root'));
+getListData(store, 'harry');

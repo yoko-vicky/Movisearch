@@ -1,8 +1,13 @@
-const addMovie = ({
+export const addMovie = ({
   imdbID = '',
   title = '',
   year = '2000',
   posterURL = '',
+  plot = '',
+  director = '',
+  actors = '',
+  genre = '',
+
 } = {}) => ({
   type: 'ADD_MOVIE',
   movie: {
@@ -10,7 +15,15 @@ const addMovie = ({
     title,
     year: Number(year),
     posterURL,
+    plot,
+    director,
+    actors,
+    genre,
   },
 });
 
-export default addMovie;
+export const updateMovie = (id, update) => ({
+  type: 'UPDATE_MOVIE',
+  id,
+  update,
+});

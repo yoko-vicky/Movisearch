@@ -6,7 +6,7 @@ const MovieListItem = ({
   title, imdbID, year, posterURL,
 }) => (
   <div>
-    <Link exact to={`/${imdbID}`}><h2>{title}</h2></Link>
+    <Link to={`/${imdbID}`}><h2>{title}</h2></Link>
     <p>{year}</p>
     <img src={posterURL} alt={title} />
   </div>

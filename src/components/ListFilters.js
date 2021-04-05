@@ -17,7 +17,7 @@ class ListFilters extends React.Component {
 
   onTitleChange = (e) => {
     const { setTitleFilter } = this.props;
-    const title = (e.target.value).trim();
+    const title = (e.target.value).trim().toLowerCase();
     if (title.match(/^[a-zA-Z0-9]{0,15}$/)) {
       this.setState(() => ({ title }));
       this.setState(() => ({ error: '' }));
@@ -52,7 +52,7 @@ class ListFilters extends React.Component {
         {error && <p>{error}</p>}
         <input
           type="text"
-          placeholder="Input keyword to search movies by title"
+          placeholder="Search by Title"
           value={title}
           onChange={this.onTitleChange}
         />
@@ -62,10 +62,9 @@ class ListFilters extends React.Component {
           max="2020"
           step="10"
           onChange={this.onPeriodChange}
-          placeholder="Input the period to search movies"
+          placeholder="Search by Period"
           value={period}
         />
-        <button type="submit">Search</button>
       </div>
     );
   }

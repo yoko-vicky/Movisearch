@@ -8,7 +8,7 @@ const getMovieData = async () => {
       i: imdbId,
     },
   });
-  return data;
+  return data.data;
 };
 
 export default getMovieData;

@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
-# Catalogue of Recipes with React & Redux
+# Catalogue of Movies with React & Redux
 <!-- ![Top Page Screenshot](./screenshot.png) -->
 
 

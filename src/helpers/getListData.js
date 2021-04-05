@@ -5,8 +5,6 @@ const getListData = async () => {
     params: {
       apikey: process.env.REACT_APP_OMDB_API_KEY,
       s: 'harry',
-      plot: 'full',
-      page: '50',
     },
   });
   return data;

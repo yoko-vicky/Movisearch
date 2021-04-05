@@ -1,4 +1,3 @@
-// imdbID
 import axios from 'axios';
 
 const getMovieData = async () => {

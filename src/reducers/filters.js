@@ -1,7 +1,6 @@
 const defaultFiltersState = {
   title: '',
   period: 0,
-  genre: '',
 };
 
 const filtersReducer = (state = defaultFiltersState, action) => {
@@ -15,11 +14,6 @@ const filtersReducer = (state = defaultFiltersState, action) => {
       return {
         ...state,
         period: action.period,
-      };
-    case 'SET_GENRE_FILTER':
-      return {
-        ...state,
-        genre: action.genre,
       };
     default:
       return state;

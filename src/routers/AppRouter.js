@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Home from '../components/Home';
-import Movie from '../components/Movie';
+import MovieDetail from '../components/MovieDetail';
 import NotFound from '../components/NotFound';
 
 const AppRouter = () => (
@@ -11,7 +11,7 @@ const AppRouter = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/:id" component={Movie} />
+        <Route exact path="/:id" component={MovieDetail} />
         <Route component={NotFound} />
       </Switch>
     </div>

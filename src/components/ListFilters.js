@@ -1,30 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import getListData from '../helpers/getListData';
-import { setTitleFilter, setPeriodFilter, setGenreFilter } from '../actions/filters';
-// import addMovie from '../actions/movies';
-
-// const getMovies = async () => {
-//   const movieList = await getListData();
-//   movieList.forEach((movie) => {
-//     // eslint-disable-next-line no-console
-//     console.log(movie.Title);
-//   });
-// };
-
-// getMovies();
+import { setTitleFilter, setPeriodFilter } from '../actions/filters';
 
 class ListFilters extends React.Component {
   constructor(props) {
     super(props);
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onPeriodChange = this.onPeriodChange.bind(this);
-    this.onGenreChange = this.onGenreChange.bind(this);
     this.state = {
       title: '',
       period: '',
-      genre: '',
       error: '',
     };
   }
@@ -57,23 +43,9 @@ class ListFilters extends React.Component {
     }
   }
 
-  onGenreChange = (e) => {
-    const { setGenreFilter } = this.props;
-    const genre = (e.target.value).trim();
-    if (genre.match(/^[a-zA-Z]{0,10}$/)) {
-      this.setState(() => ({ error: '' }));
-      this.setState(() => ({ genre }));
-      setGenreFilter(genre);
-    } else {
-      this.setState(() => ({
-        error: 'Genre should be provided only less than 10 alphabet characters.',
-      }));
-    }
-  }
-
   render() {
     const {
-      title, period, genre, error,
+      title, period, error,
     } = this.state;
     return (
       <div>
@@ -93,12 +65,7 @@ class ListFilters extends React.Component {
           placeholder="Input the period to search movies"
           value={period}
         />
-        <input
-          type="text"
-          placeholder="Input keyword to search movies by genre"
-          value={genre}
-          onChange={this.onGenreChange}
-        />
+        <button type="submit">Search</button>
       </div>
     );
   }
@@ -107,19 +74,16 @@ class ListFilters extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
   setTitleFilter: (title) => dispatch(setTitleFilter(title)),
   setPeriodFilter: (period) => dispatch(setPeriodFilter(period)),
-  setGenreFilter: (genre) => dispatch(setGenreFilter(genre)),
 });
 
 ListFilters.propTypes = {
   setTitleFilter: PropTypes.func,
   setPeriodFilter: PropTypes.func,
-  setGenreFilter: PropTypes.func,
 };
 
 ListFilters.defaultProps = {
   setTitleFilter: null,
   setPeriodFilter: null,
-  setGenreFilter: null,
 };
 
 export default connect(undefined, mapDispatchToProps)(ListFilters);

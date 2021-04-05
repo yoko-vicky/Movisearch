@@ -7,7 +7,7 @@ import React from 'react';
 // };
 
 // getMovie();
-const Movie = () => (
+const MovieDetail = () => (
   <div>
     <h2>Movie Name</h2>
     <p>
@@ -16,6 +16,6 @@ const Movie = () => (
   </div>
 );
 
-export default Movie;
+export default MovieDetail;
 
 // props.match.params.id

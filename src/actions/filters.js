@@ -3,9 +3,9 @@ export const setTitleFilter = (title = '') => ({
   title,
 });
 
-export const setPeriodFilter = (period = undefined) => ({
+export const setPeriodFilter = (period = '') => ({
   type: 'SET_PERIOD_FILTER',
-  period,
+  period: Number(period),
 });
 
 export const setGenreFilter = (genre = '') => ({

@@ -3,6 +3,10 @@ const addMovie = ({
   title = '',
   genre = [],
   year = '2000',
+  plot = '',
+  posterURL = '',
+  director = '',
+  actors = [],
 } = {}) => ({
   type: 'ADD_MOVIE',
   movie: {
@@ -10,6 +14,10 @@ const addMovie = ({
     title,
     genre: genre.split(', '),
     year: Number(year),
+    plot,
+    posterURL,
+    director,
+    actors: actors.split(', '),
   },
 });
 

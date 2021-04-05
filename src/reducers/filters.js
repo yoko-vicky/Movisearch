@@ -1,6 +1,6 @@
 const defaultFiltersState = {
   title: '',
-  period: undefined,
+  period: 0,
   genre: '',
 };
 

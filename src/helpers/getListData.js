@@ -7,7 +7,7 @@ const getListData = async () => {
       s: 'harry',
     },
   });
-  return data;
+  return data.data.Search;
 };
 
 export default getListData;

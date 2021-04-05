@@ -1,5 +1,12 @@
 import React from 'react';
+// import getMovieData from '../helpers/getMovieData';
 
+// const getMovie = async () => {
+//   const movieData = await getMovieData();
+//   console.log('Movie', movieData);
+// };
+
+// getMovie();
 const Movie = () => (
   <div>
     <h2>Movie Name</h2>

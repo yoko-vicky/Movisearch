@@ -1,27 +1,27 @@
 import React from 'react';
-import getListData from '../helpers/getListData';
-import getMovieData from '../helpers/getMovieData';
+import ListFilters from './ListFilters';
+// import MovieListItem from './MovieListItem';
 
-const getMovies = async () => {
-  const movieList = await getListData();
-  console.log('MoviesData', movieList.data.Search);
-};
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // eslint-disable-next-line react/no-unused-state
+      ama: 'ashaks',
+    };
+  }
 
-const getMovie = async () => {
-  const movieData = await getMovieData();
-  console.log('Movie', movieData);
-};
-
-getMovies();
-getMovie();
-
-const Home = () => {
-  console.log('a');
-  return (
-    <div>
-      <h2>This is Home</h2>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <h2>Movies</h2>
+        <ListFilters />
+        <div className="movies">
+          asjalsjalsja
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Home;

@@ -1,23 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const MovieListItem = ({ movie }) => (
+const MovieListItem = ({
+  title, imdbID, year, posterURL,
+}) => (
   <div>
-    <h2>{movie.title}</h2>
+    <Link exact to={`/${imdbID}`}><h2>{title}</h2></Link>
+    <p>{year}</p>
+    <img src={posterURL} alt={title} />
   </div>
 );
 
 MovieListItem.propTypes = {
-  movie: PropTypes.instanceOf(Object),
+  imdbID: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.number,
+  posterURL: PropTypes.string,
 };
 
 MovieListItem.defaultProps = {
-  movie: {
-    imdbID: '',
-    title: '',
-    year: '2000',
-    posterURL: '',
-  },
+  imdbID: '',
+  title: '',
+  year: 2000,
+  posterURL: '',
 };
 
 export default MovieListItem;

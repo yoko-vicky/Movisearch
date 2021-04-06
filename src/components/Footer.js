@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="footer">
     <Link to="/">
       <p className="footer__logo">
-        Movio
+        MoviSearch
       </p>
     </Link>
     <div className="footer__copyright">

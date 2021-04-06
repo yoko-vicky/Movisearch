@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getMovieData from '../helpers/getMovieData';
 import { updateMovie } from '../actions/movies';
+import noImg from '../assets/images/no-img.jpg';
 
 class MovieDetail extends React.Component {
   constructor(props) {
     super(props);
     this.getMovie = this.getMovie.bind(this);
-    const { movie } = this.props;
-    this.state = {
-      plot: movie.plot ? movie.plot : '',
-      director: movie.director ? movie.director : '',
-      actors: movie.actors ? movie.actors : '',
-      genre: movie.genre ? movie.genre.toString().replace(/,/g, ', ') : '',
-    };
   }
 
   componentDidMount() {
+    this.runGetMovie();
+  }
+
+  componentDidUpdate() {
+    this.runGetMovie();
+  }
+
+  runGetMovie = () => {
+    const { movie } = this.props;
     const {
       plot, director, actors, genre,
-    } = this.state;
+    } = movie;
     if (!plot || !director || !actors || !genre) {
       this.getMovie();
     }
@@ -30,35 +33,52 @@ class MovieDetail extends React.Component {
     const { movie } = this.props;
     const { updateMovie } = this.props;
     const movieData = await getMovieData(movie.imdbID);
-    const update = {
+    updateMovie(movie.imdbID, {
       plot: movieData.Plot,
       director: movieData.Director,
       actors: movieData.Actors,
       genre: movieData.Genre,
-    };
-    this.setState(() => ({
-      plot: update.plot,
-      director: update.director,
-      actors: update.actors,
-      genre: update.genre,
-    }));
-    updateMovie(movie.imdbID, update);
+    });
   };
 
   render() {
     const { movie } = this.props;
     const {
-      plot, director, actors, genre,
-    } = this.state;
+      posterURL, imdbID, title, year, plot, director, actors, genre,
+    } = movie;
 
     return (
       <div className="container">
-        <h2>{movie.title}</h2>
-        {movie.posterURL && <img src={movie.posterURL} alt={movie.title} />}
-        {plot && <p>{plot}</p>}
-        {director && <p>{director}</p>}
-        {actors && <p>{actors}</p>}
-        {genre && <p>{genre}</p>}
+        <div className="movie">
+          <div className="movie__image-wrap">
+            <img src={posterURL || noImg} alt={title || `Movie-${imdbID}`} className="movie__image" />
+          </div>
+          <div className="movie__title-wrap">
+            <h2 className="movie__title">{title}</h2>
+            <div className="movie__year">{year}</div>
+          </div>
+          <div className="movie__text-wrap">
+            {plot && <p className="movie__plot movie__spec">{plot}</p>}
+            {director && (
+            <div className="movie__director movie__spec">
+              <h3 className="movie__spec__title">Director: </h3>
+              <p className="movie__spec__text">{director}</p>
+            </div>
+            )}
+            {actors && (
+            <div className="movie__actors movie__spec">
+              <h3 className="movie__spec__title">Actors: </h3>
+              <p className="movie__spec__text">{actors}</p>
+            </div>
+            )}
+            {genre && (
+            <div className="movie__genre movie__spec">
+              <h3 className="movie__spec__title">Genre: </h3>
+              <p className="movie__spec__text">{genre}</p>
+            </div>
+            )}
+          </div>
+        </div>
       </div>
     );
   }

@@ -10,10 +10,10 @@ const MovieListItem = ({
     <Link to={`/${imdbID}`} className="movies__item__link">
       <img src={posterURL || noImg} alt={title || `Movie-${imdbID}`} className="movies__item__image" />
     </Link>
-    <div className="movies__item__text">
+    <Link to={`/${imdbID}`} className="movies__item__text">
       <h2 className="movies__item__title">{title || `Movie ${imdbID}`}</h2>
       <div className="movies__item__year">{year || ''}</div>
-    </div>
+    </Link>
   </div>
 );
 

@@ -52,7 +52,7 @@ class MovieDetail extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="container">
         <h2>{movie.title}</h2>
         {movie.posterURL && <img src={movie.posterURL} alt={movie.title} />}
         {plot && <p>{plot}</p>}

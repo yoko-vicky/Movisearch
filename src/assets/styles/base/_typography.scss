@@ -8,11 +8,14 @@ html {
 }
 
 body,
+select,
+input,
 button {
   font-family: $main-font;
   line-height: 1.7;
-  font-size: 1.5rem;
-  letter-spacing: 0.2px;
+  font-size: $default-font-size;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   color: $black;
 }
 

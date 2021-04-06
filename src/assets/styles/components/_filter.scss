@@ -1,15 +1,18 @@
-.category-filter {
-  margin: 0 0 2rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.filters {
+  width: $default-width;
+  margin: 0 auto;
+  padding: 1rem 0;
 
-  &__text {
-    margin-right: 1rem;
-    color: $light-black;
+  &__form {
+    display: flex;
+    flex-flow: column;
   }
 
+  &__input,
   &__select {
-    width: 30rem;
+    margin-bottom: 1rem;
+    font-family: $main-font;
+    text-transform: uppercase;
   }
+  // &__button{}
 }

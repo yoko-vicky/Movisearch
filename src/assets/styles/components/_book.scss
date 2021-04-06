@@ -1,5 +1,5 @@
 .book {
-  border: 1px solid $line-grey;
+  border: 1px solid $light-grey-2;
   background: $white;
   padding: 3.2rem 2.8rem;
   display: flex;
@@ -27,7 +27,7 @@
       display: block;
       height: 70px;
       width: 2px;
-      background-color: $line-grey;
+      background-color: $light-grey-2;
       position: absolute;
       top: 0;
       left: 0;
@@ -36,11 +36,9 @@
 
   &__cat {
     font-size: 1.4rem;
-    color: $light-black;
+    color: $half-black;
     font-weight: bold;
     margin-bottom: 0.3rem;
-
-    @include subFont;
   }
 
   &__title {
@@ -51,7 +49,7 @@
   }
 
   &__author {
-    color: $primary-color-dark;
+    color: $primary-color;
     margin-bottom: 1.8rem;
   }
 
@@ -61,7 +59,7 @@
     &__btn {
       padding: 0.4rem 1.5rem;
       position: relative;
-      color: $primary-color-dark;
+      color: $primary-color;
       transition: all 0.2s;
 
       &:first-child {
@@ -73,7 +71,7 @@
           content: '';
           display: block;
           position: absolute;
-          background: $line-grey;
+          background: $light-grey-2;
           width: 2px;
           height: 2.4rem;
           top: 50%;
@@ -91,7 +89,7 @@
   &__current {
     &__title {
       text-transform: uppercase;
-      color: $light-black;
+      color: $half-black;
       font-size: 1.3rem;
       margin-bottom: 0.8rem;
     }
@@ -113,17 +111,13 @@
       width: 6.8rem;
     }
 
-    &__text {
-      @include subFont;
-    }
-
     &__percent {
       font-size: 3.2rem;
     }
 
     &__completed {
       font-size: 1.4rem;
-      color: $light-black;
+      color: $half-black;
     }
   }
 }

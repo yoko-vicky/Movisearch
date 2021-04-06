@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import noImg from '../assets/images/no-img.jpg';
 
 const MovieListItem = ({
   title, imdbID, year, posterURL,
 }) => (
-  <div>
-    <Link to={`/${imdbID}`}><h2>{title || `Movie ${imdbID}`}</h2></Link>
-    <p>{year || ''}</p>
-    {posterURL && <img src={posterURL} alt={title || `Movie ${imdbID}`} />}
+  <div className="movies__item">
+    <Link to={`/${imdbID}`} className="movies__item__link">
+      <img src={posterURL || noImg} alt={title || `Movie-${imdbID}`} className="movies__item__image" />
+    </Link>
+    <div className="movies__item__text">
+      <h2 className="movies__item__title">{title || `Movie ${imdbID}`}</h2>
+      <div className="movies__item__year">{year || ''}</div>
+    </div>
   </div>
 );
 

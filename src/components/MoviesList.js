@@ -5,7 +5,7 @@ import getVisibleMovies from '../selectors/movies';
 import MovieListItem from './MovieListItem';
 
 const MoviesList = ({ movies }) => (
-  <div>
+  <div className="movies">
     {movies.map((movie) => {
       const {
         title, imdbID, year, posterURL,

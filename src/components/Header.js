@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <header className="header">
-    <h1 className="header__title">Catalogue of Movies</h1>
+    <Link to="/"><h1 className="header__title">Movio</h1></Link>
   </header>
 );
 

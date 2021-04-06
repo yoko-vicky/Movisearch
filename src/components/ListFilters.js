@@ -53,22 +53,31 @@ class ListFilters extends React.Component {
       title, period, error,
     } = this.state;
     return (
-      <div>
+      <div className="filters">
         {error && <p>{error}</p>}
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} className="filters__form">
           <input
             type="text"
             placeholder="Search by Title"
             value={title}
             onChange={this.onTitleChange}
             name="title"
+            className="filters__input"
           />
-          <select name="period" value={period} onChange={this.onPeriodChange}>
+          <select
+            name="period"
+            value={period}
+            onChange={this.onPeriodChange}
+            className="filters__select"
+          >
             {periods.map((opt) => (
               <option value={opt} key={opt}>{opt}</option>
             ))}
           </select>
-          <button type="submit">Search</button>
+          <button type="submit" className="filters__button btn">
+            <span className="iconify" data-icon="gg:search" data-inline="false" />
+            Search
+          </button>
         </form>
       </div>
     );

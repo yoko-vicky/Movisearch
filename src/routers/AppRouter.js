@@ -7,7 +7,7 @@ import NotFound from '../components/NotFound';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div>
+    <div className="whole-container">
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />

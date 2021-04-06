@@ -1,8 +1,3 @@
-@mixin subFont {
-  font-family: $sub-font;
-  letter-spacing: 0.2px;
-}
-
 @mixin setWidth {
   width: $default-width;
   max-width: $max-width;

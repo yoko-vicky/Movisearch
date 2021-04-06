@@ -56,4 +56,4 @@ const jsx = (
 );
 
 ReactDOM.render(jsx, document.getElementById('root'));
-// setDataToStore('harry');
+setDataToStore('harry');

@@ -3,8 +3,7 @@ import ListFilters from './ListFilters';
 import MoviesList from './MoviesList';
 
 const Home = () => (
-  <div>
-    <h2>Movies</h2>
+  <div className="container">
     <ListFilters />
     <MoviesList />
   </div>

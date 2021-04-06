@@ -9,6 +9,7 @@ class ListFilters extends React.Component {
     super(props);
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onPeriodChange = this.onPeriodChange.bind(this);
+    this.onReset = this.onReset.bind(this);
     this.state = {
       title: '',
       period: 'All',
@@ -48,13 +49,17 @@ class ListFilters extends React.Component {
     }
   }
 
+  onReset = () => {
+    this.setState(() => ({ title: '', period: 'All' }));
+  }
+
   render() {
     const {
       title, period, error,
     } = this.state;
     return (
       <div className="filters">
-        {error && <p>{error}</p>}
+        {error && <p className="error-msg">{error}</p>}
         <form onSubmit={this.onSubmit} className="filters__form">
           <input
             type="text"
@@ -78,6 +83,7 @@ class ListFilters extends React.Component {
             <span className="iconify" data-icon="gg:search" data-inline="false" />
             Search
           </button>
+          <button type="button" className="btn" onClick={this.onReset}>Reset</button>
         </form>
       </div>
     );

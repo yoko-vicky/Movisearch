@@ -7,16 +7,12 @@
     padding: 2rem 0;
   }
 
-  @include mq(laptap) {
-    margin-top: 2rem;
-  }
-
   &__logo {
     @include logoFont;
 
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
-    color: $white;
+    color: $secondary-color;
 
     @include mq(tab) {
       font-size: 2.4rem;

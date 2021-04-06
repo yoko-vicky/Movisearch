@@ -5,9 +5,7 @@ import configureStore from './store/configureStore';
 import AppRouter from './routers/AppRouter';
 import { addMovie } from './actions/movies';
 import './assets/styles/style.scss';
-
 import getListData from './helpers/getListData';
-import getVisibleMovies from './selectors/movies';
 
 const store = configureStore();
 
@@ -29,24 +27,15 @@ const setDataToStore = (query) => {
         }));
       }
     });
-  }).catch((error) => {
-    // eslint-disable-next-line no-console
-    console.log('MYERROR', error);
+  }).catch((e) => {
+    // eslint-disable-next-line no-unused-vars
+    const error = e;
   });
 };
 
 store.subscribe(() => {
-  const { movies, filters } = store.getState();
-  // eslint-disable-next-line no-console
-  // console.log('MoviesStore:', movies);
-  // eslint-disable-next-line no-console
-  // console.log('FiltersStore:', filters);
-  console.log('Filters', filters);
-  // eslint-disable-next-line no-unused-vars
-  const visibleMovies = getVisibleMovies(movies, filters);
+  const { filters } = store.getState();
   setDataToStore(filters.title);
-  console.log(movies);
-  console.log(visibleMovies);
 });
 
 const jsx = (
@@ -56,4 +45,4 @@ const jsx = (
 );
 
 ReactDOM.render(jsx, document.getElementById('root'));
-setDataToStore('harry');
+// setDataToStore('harry');

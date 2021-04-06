@@ -22,11 +22,12 @@ select {
   border: 1px solid $light-grey-1;
 }
 
-// select {
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-
-//   &:invalid {
-//     color: $light-grey-1;
-//   }
-// }
+.error-msg {
+  width: $default-width;
+  padding: 1rem 2rem;
+  border: 1px solid rgba($secondary-color, 0.8);
+  margin: 2rem auto;
+  max-width: $max-width;
+  border-radius: 3px;
+  color: $secondary-color;
+}

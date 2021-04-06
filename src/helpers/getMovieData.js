@@ -6,8 +6,8 @@ const getMovieData = async (imdbID) => {
       apikey: process.env.REACT_APP_OMDB_API_KEY,
       i: imdbID,
     },
-  });
-  return data.data;
+  }).then((response) => response.data).catch((error) => error);
+  return data;
 };
 
 export default getMovieData;

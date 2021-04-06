@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import getMovieData from '../helpers/getMovieData';
 import { updateMovie } from '../actions/movies';
@@ -51,7 +52,7 @@ class MovieDetail extends React.Component {
       <div className="container">
         <div className="movie">
           <div className="movie__image-wrap">
-            <img src={posterURL || noImg} alt={title || `Movie-${imdbID}`} className="movie__image" />
+            <img src={posterURL === 'N/A' ? noImg : posterURL} alt={title || `Movie-${imdbID}`} className="movie__image" />
           </div>
           <div className="movie__title-wrap">
             <h2 className="movie__title">{title}</h2>
@@ -61,23 +62,33 @@ class MovieDetail extends React.Component {
             {plot && <p className="movie__plot movie__spec">{plot}</p>}
             {director && (
             <div className="movie__director movie__spec">
-              <h3 className="movie__spec__title">Director: </h3>
+              <h3 className="movie__spec__title">
+                <span className="iconify" data-icon="bx:bxs-camera-movie" data-inline="false" />
+                Director:
+              </h3>
               <p className="movie__spec__text">{director}</p>
             </div>
             )}
             {actors && (
             <div className="movie__actors movie__spec">
-              <h3 className="movie__spec__title">Actors: </h3>
+              <h3 className="movie__spec__title">
+                <span className="iconify" data-icon="mdi:dance-ballroom" data-inline="false" />
+                Actors:
+              </h3>
               <p className="movie__spec__text">{actors}</p>
             </div>
             )}
             {genre && (
             <div className="movie__genre movie__spec">
-              <h3 className="movie__spec__title">Genre: </h3>
+              <h3 className="movie__spec__title">
+                <span className="iconify" data-icon="ri:movie-2-fill" data-inline="false" />
+                Genre:
+              </h3>
               <p className="movie__spec__text">{genre}</p>
             </div>
             )}
           </div>
+          <Link to="/" className="btn movie__btn">Back to Home</Link>
         </div>
       </div>
     );

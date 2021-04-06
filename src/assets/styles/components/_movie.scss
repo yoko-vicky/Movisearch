@@ -71,5 +71,19 @@
 
   &__spec {
     margin: 0 auto 1rem;
+
+    &__title {
+      display: flex;
+      align-items: center;
+
+      .iconify {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &__btn {
+    max-width: 32rem;
+    margin: 0 auto;
   }
 }

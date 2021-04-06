@@ -7,8 +7,8 @@ const getListData = async (query) => {
       s: query,
       page: 1,
     },
-  });
-  return data.data.Search;
+  }).then((response) => response.data.Search).catch((error) => error);
+  return data;
 };
 
 export default getListData;

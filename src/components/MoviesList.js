@@ -5,8 +5,8 @@ import getVisibleMovies from '../selectors/movies';
 import MovieListItem from './MovieListItem';
 
 const MoviesList = ({ movies }) => (
-  <>
-    {movies.length === 0 && <p className="error-msg">Sorry, any movies have not been found.</p>}
+  <div>
+    {movies.length === 0 && <p className="error-msg">Sorry, any movies have not been found. Try to search again!</p>}
     <div className="movies">
       {movies.map((movie) => {
         const {
@@ -23,7 +23,7 @@ const MoviesList = ({ movies }) => (
         );
       })}
     </div>
-  </>
+  </div>
 );
 
 const mapStateToProps = (state) => ({

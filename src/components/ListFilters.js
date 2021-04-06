@@ -18,10 +18,9 @@ class ListFilters extends React.Component {
   }
 
   onTitleChange = (e) => {
-    const title = (e.target.value).trim().toLowerCase();
-    if (title.match(/^[a-zA-Z0-9]{0,15}$/)) {
-      this.setState(() => ({ title }));
-      this.setState(() => ({ error: '' }));
+    const title = e.target.value;
+    if (title.match(/^[a-zA-Z0-9\s]{0,15}$/g)) {
+      this.setState(() => ({ title, error: '' }));
     } else {
       this.setState(() => ({
         error: 'Title should be provided less than 15 characters.',
@@ -44,13 +43,16 @@ class ListFilters extends React.Component {
         error: 'Keyword to search title should be provided.',
       }));
     } else {
-      setTitleFilter(title);
+      setTitleFilter(title.trim().toLowerCase());
       setPeriodFilter(period);
     }
   }
 
   onReset = () => {
+    const { setTitleFilter, setPeriodFilter } = this.props;
     this.setState(() => ({ title: '', period: 'All' }));
+    setTitleFilter('');
+    setPeriodFilter('All');
   }
 
   render() {
@@ -83,7 +85,13 @@ class ListFilters extends React.Component {
             <span className="iconify" data-icon="gg:search" data-inline="false" />
             Search
           </button>
-          <button type="button" className="btn" onClick={this.onReset}>Reset</button>
+          <button
+            type="button"
+            className="btn grey"
+            onClick={this.onReset}
+          >
+            Reset
+          </button>
         </form>
       </div>
     );

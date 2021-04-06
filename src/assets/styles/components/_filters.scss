@@ -23,7 +23,7 @@
   &__select {
     margin-bottom: 1rem;
     font-family: $main-font;
-    text-transform: uppercase;
+    text-transform: initial;
 
     @include mq(tab) {
       margin-bottom: 0;

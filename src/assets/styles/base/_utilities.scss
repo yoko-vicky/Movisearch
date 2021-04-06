@@ -12,6 +12,10 @@
   .iconify {
     margin-right: 1rem;
   }
+
+  &.grey {
+    background: $grey;
+  }
 }
 
 input,

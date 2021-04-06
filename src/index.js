@@ -41,7 +41,7 @@ store.subscribe(() => {
   // console.log('MoviesStore:', movies);
   // eslint-disable-next-line no-console
   // console.log('FiltersStore:', filters);
-  console.log('FiltersTitle:', filters.title);
+  console.log('Filters', filters);
   // eslint-disable-next-line no-unused-vars
   const visibleMovies = getVisibleMovies(movies, filters);
   setDataToStore(filters.title);

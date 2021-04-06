@@ -1,0 +1,129 @@
+.book {
+  border: 1px solid $line-grey;
+  background: $white;
+  padding: 3.2rem 2.8rem;
+  display: flex;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  &__left {
+    flex: 1;
+  }
+
+  &__middle {
+    flex: 0 0 15%;
+    padding-right: 8rem;
+  }
+
+  &__right {
+    flex: 0 0 36rem;
+    padding-left: 6rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 70px;
+      width: 2px;
+      background-color: $line-grey;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__cat {
+    font-size: 1.4rem;
+    color: $light-black;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+
+    @include subFont;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1.65;
+    letter-spacing: -0.2px;
+  }
+
+  &__author {
+    color: $primary-color-dark;
+    margin-bottom: 1.8rem;
+  }
+
+  &__actions {
+    display: inline-block;
+
+    &__btn {
+      padding: 0.4rem 1.5rem;
+      position: relative;
+      color: $primary-color-dark;
+      transition: all 0.2s;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:not(:last-child) {
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          background: $line-grey;
+          width: 2px;
+          height: 2.4rem;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+        }
+      }
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__current {
+    &__title {
+      text-transform: uppercase;
+      color: $light-black;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    &__chapter {
+      font-size: 1.6rem;
+      letter-spacing: -0.4px;
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  &__chart {
+    display: flex;
+    align-items: center;
+
+    &__graph {
+      margin-right: 2rem;
+      flex: 0 0 6.8rem;
+      width: 6.8rem;
+    }
+
+    &__text {
+      @include subFont;
+    }
+
+    &__percent {
+      font-size: 3.2rem;
+    }
+
+    &__completed {
+      font-size: 1.4rem;
+      color: $light-black;
+    }
+  }
+}

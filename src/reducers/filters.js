@@ -1,6 +1,6 @@
 const defaultFiltersState = {
   title: '',
-  period: 0,
+  period: 'All',
 };
 
 const filtersReducer = (state = defaultFiltersState, action) => {

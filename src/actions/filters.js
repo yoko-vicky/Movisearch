@@ -3,7 +3,7 @@ export const setTitleFilter = (title = '') => ({
   title,
 });
 
-export const setPeriodFilter = (period = '') => ({
+export const setPeriodFilter = (period = 'All') => ({
   type: 'SET_PERIOD_FILTER',
-  period: Number(period),
+  period,
 });

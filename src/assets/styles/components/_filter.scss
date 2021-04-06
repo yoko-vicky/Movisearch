@@ -1,0 +1,15 @@
+.category-filter {
+  margin: 0 0 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__text {
+    margin-right: 1rem;
+    color: $light-black;
+  }
+
+  &__select {
+    width: 30rem;
+  }
+}

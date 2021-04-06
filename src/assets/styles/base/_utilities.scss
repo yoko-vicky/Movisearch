@@ -1,0 +1,43 @@
+.blue-btn {
+  padding: 0.8rem 2.2rem;
+  background: $primary-color;
+  color: $white;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+input,
+select {
+  background: $white;
+  font-family: $sub-font;
+  padding: 1.3rem 1.8rem;
+  border-radius: 4px;
+  border: 1px solid $line-grey;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  background-image: url("../../images/carret.svg");
+  background-repeat: no-repeat;
+  background-position-x: 97%;
+  background-position-y: 5px;
+
+  &:invalid {
+    color: $pinkish-grey;
+  }
+}
+
+.inner {
+  text-align: center;
+
+  @include setWidth;
+
+  h2 {
+    font-size: 4rem;
+    margin-bottom: 2.4rem;
+  }
+}

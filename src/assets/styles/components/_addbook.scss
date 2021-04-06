@@ -1,0 +1,25 @@
+.addbook {
+  @include setWidth;
+
+  padding: 3.2rem 0 8rem;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $grey;
+    margin-bottom: 2rem;
+
+    @include subFont;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 5fr 3fr 18.4rem;
+    grid-gap: 3.4rem;
+  }
+
+  .blue-btn {
+    font-weight: bold;
+  }
+}

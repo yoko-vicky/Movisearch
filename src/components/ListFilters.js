@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setTitleFilter, setPeriodFilter } from '../actions/filters';
+import periods from '../helpers/periods';
 
 class ListFilters extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class ListFilters extends React.Component {
     this.onPeriodChange = this.onPeriodChange.bind(this);
     this.state = {
       title: '',
-      period: '',
+      period: 'All',
       error: '',
     };
   }
@@ -30,13 +31,6 @@ class ListFilters extends React.Component {
   onPeriodChange = (e) => {
     const period = e.target.value;
     this.setState(() => ({ period }));
-    if (period.match(/^[0-9]{4}$/) && period >= 1900) {
-      this.setState(() => ({ error: '' }));
-    } else {
-      this.setState(() => ({
-        error: 'Period should be provided 4 digit year number between 1900 and 2020.',
-      }));
-    }
   }
 
   onSubmit = (e) => {
@@ -51,7 +45,6 @@ class ListFilters extends React.Component {
     } else {
       setTitleFilter(title);
       setPeriodFilter(period);
-      // this.setState(() => ({ error: '', title: '', period: '' }));
     }
   }
 
@@ -70,16 +63,11 @@ class ListFilters extends React.Component {
             onChange={this.onTitleChange}
             name="title"
           />
-          <input
-            type="number"
-            min="1900"
-            max="2020"
-            step="10"
-            onChange={this.onPeriodChange}
-            placeholder="Search by Period"
-            value={period}
-            name="period"
-          />
+          <select name="period" value={period} onChange={this.onPeriodChange}>
+            {periods.map((opt) => (
+              <option value={opt} key={opt}>{opt}</option>
+            ))}
+          </select>
           <button type="submit">Search</button>
         </form>
       </div>

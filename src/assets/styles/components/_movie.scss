@@ -6,6 +6,12 @@
 
   &__image-wrap {
     width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+
+    @include mq(mob) {
+      margin: 2rem auto 3rem;
+    }
   }
 
   &__image {
@@ -18,8 +24,14 @@
 
   &__title-wrap {
     background: $trans-black;
-    color: $white;
     padding: 1.6rem 2rem;
+
+    @include mq(tab) {
+      background: none;
+      width: 90%;
+      margin: 0 auto 2rem;
+      padding: 0;
+    }
   }
 
   &__title {
@@ -27,17 +39,34 @@
     line-height: 1.6;
     margin: 0 auto 0.8rem;
     color: $primary-color;
+
+    @include mq(tab) {
+      color: $black;
+      font-size: 2rem;
+      margin: 0 auto;
+    }
   }
 
   &__year {
     margin: 0 auto;
     font-style: italic;
+    color: $white;
+
+    @include mq(tab) {
+      color: $black;
+      font-size: 1.6rem;
+    }
   }
 
   &__text-wrap {
     width: 90%;
     padding: 2rem 0;
     margin: 0 auto;
+
+    @include mq(tab) {
+      padding: 0;
+      margin: 0 auto 4rem;
+    }
   }
 
   &__spec {

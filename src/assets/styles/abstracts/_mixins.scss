@@ -4,10 +4,15 @@
   margin: 0 auto;
 }
 
+@mixin logoFont {
+  font-family: $logo-font;
+  text-transform: lowercase;
+}
+
 // MEDIA QUERY setting
 @mixin mq($breakpoint) {
   @if $breakpoint == mob {
-    @media only screen and (min-width: 460px) {
+    @media only screen and (min-width: 425px) {
       @content;
     }
   }
@@ -30,9 +35,9 @@
     }
   }
 
-  @if $breakpoint == xs {
-    @media only screen and (max-width: 420px) {
-      @content;
-    }
-  }
+  // @if $breakpoint == xs {
+  //   @media only screen and (max-width: 420px) {
+  //     @content;
+  //   }
+  // }
 }

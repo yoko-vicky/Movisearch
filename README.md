@@ -72,3 +72,5 @@ This project is [MIT](./LICENSE) licensed.
 * [Prop Types](https://www.npmjs.com/package/prop-types)
 * [Heroku](https://dashboard.heroku.com/)
 * [iconify](https://iconify.design/icon-sets/)
+* [Pixabay](https://pixabay.com/)
+* [OMDb API](http://www.omdbapi.com/)

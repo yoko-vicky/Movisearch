@@ -5,6 +5,7 @@ const getListData = async (query) => {
     params: {
       apikey: process.env.REACT_APP_OMDB_API_KEY,
       s: query,
+      page: 1,
     },
   });
   return data.data.Search;

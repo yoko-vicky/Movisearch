@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Home from '../components/Home';
 import MovieDetail from '../components/MovieDetail';
 import NotFound from '../components/NotFound';
@@ -14,6 +15,7 @@ const AppRouter = () => (
         <Route exact path="/:id" component={MovieDetail} />
         <Route component={NotFound} />
       </Switch>
+      <Footer />
     </div>
   </BrowserRouter>
 );

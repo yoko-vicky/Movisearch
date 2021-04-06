@@ -1,11 +1,22 @@
 .filters {
   width: $default-width;
+  max-width: $max-width;
   margin: 0 auto;
   padding: 1rem 0;
+
+  @include mq(laptap) {
+    padding: 2rem 0;
+  }
 
   &__form {
     display: flex;
     flex-flow: column;
+
+    @include mq(tab) {
+      display: grid;
+      grid-template-columns: 3fr 1.5fr 1fr;
+      grid-gap: 1rem;
+    }
   }
 
   &__input,
@@ -13,6 +24,10 @@
     margin-bottom: 1rem;
     font-family: $main-font;
     text-transform: uppercase;
+
+    @include mq(tab) {
+      margin-bottom: 0;
+    }
   }
   // &__button{}
 }

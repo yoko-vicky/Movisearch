@@ -9,12 +9,20 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
+
+  @include mq(tab) {
+    height: $tab-header-height;
+  }
 
   &__title {
     font-size: 2rem;
-    font-weight: bold;
-    font-family: $logo-font;
     color: $primary-color;
-    text-transform: lowercase;
+
+    @include logoFont;
+
+    @include mq(tab) {
+      font-size: 3rem;
+    }
   }
 }

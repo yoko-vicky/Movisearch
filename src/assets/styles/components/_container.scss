@@ -8,6 +8,7 @@
   margin: 0 auto;
   padding-top: $mb-header-height;
   padding-bottom: 4rem;
+  min-height: 88vh;
 
   @include mq(tab) {
     padding-top: $tab-header-height;

@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 export const addMovie = ({
   imdbID = '',
   title = '',
@@ -11,6 +13,7 @@ export const addMovie = ({
 } = {}) => ({
   type: 'ADD_MOVIE',
   movie: {
+    id: uuid(),
     imdbID,
     title,
     year: Number(year),

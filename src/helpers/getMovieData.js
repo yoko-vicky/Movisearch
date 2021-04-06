@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const getMovieData = async () => {
-  const imdbId = 'tt1201607';
+const getMovieData = async (imdbID) => {
   const data = await axios.get('http://www.omdbapi.com/', {
     params: {
       apikey: process.env.REACT_APP_OMDB_API_KEY,
-      i: imdbId,
+      i: imdbID,
     },
   });
   return data.data;

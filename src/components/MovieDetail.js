@@ -27,8 +27,9 @@ class MovieDetail extends React.Component {
   }
 
   getMovie = async () => {
+    const { movie } = this.props;
     const { updateMovie } = this.props;
-    const movieData = await getMovieData();
+    const movieData = await getMovieData(movie.imdbID);
     const update = {
       plot: movieData.Plot,
       director: movieData.Director,
@@ -41,7 +42,7 @@ class MovieDetail extends React.Component {
       actors: update.actors,
       genre: update.genre,
     }));
-    updateMovie(movieData.imdbID, update);
+    updateMovie(movie.id, update);
   };
 
   render() {
@@ -64,7 +65,7 @@ class MovieDetail extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  movie: state.movies.find((movie) => movie.imdbID === props.match.params.id),
+  movie: state.movies.find((movie) => movie.id === props.match.params.id),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const MovieListItem = ({
-  title, imdbID, year, posterURL,
+  title, id, year, posterURL,
 }) => (
   <div>
-    <Link to={`/${imdbID}`}><h2>{title}</h2></Link>
-    <p>{year}</p>
-    <img src={posterURL} alt={title} />
+    <Link to={`/${id}`}><h2>{title || `Movie ${id}`}</h2></Link>
+    <p>{year || ''}</p>
+    {posterURL && <img src={posterURL} alt={title || `Movie ${id}`} />}
   </div>
 );
 
 MovieListItem.propTypes = {
-  imdbID: PropTypes.string,
+  id: PropTypes.string,
   title: PropTypes.string,
   year: PropTypes.number,
   posterURL: PropTypes.string,
 };
 
 MovieListItem.defaultProps = {
-  imdbID: '',
+  id: '',
   title: '',
   year: 2000,
   posterURL: '',

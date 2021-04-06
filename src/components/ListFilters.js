@@ -16,12 +16,10 @@ class ListFilters extends React.Component {
   }
 
   onTitleChange = (e) => {
-    const { setTitleFilter } = this.props;
     const title = (e.target.value).trim().toLowerCase();
     if (title.match(/^[a-zA-Z0-9]{0,15}$/)) {
       this.setState(() => ({ title }));
       this.setState(() => ({ error: '' }));
-      setTitleFilter(title);
     } else {
       this.setState(() => ({
         error: 'Title should be provided less than 15 characters.',
@@ -30,16 +28,30 @@ class ListFilters extends React.Component {
   }
 
   onPeriodChange = (e) => {
-    const { setPeriodFilter } = this.props;
     const period = e.target.value;
     this.setState(() => ({ period }));
     if (period.match(/^[0-9]{4}$/) && period >= 1800) {
       this.setState(() => ({ error: '' }));
-      setPeriodFilter(period);
     } else {
       this.setState(() => ({
         error: 'Period should be provided 4 digit year number between 1800 and 2020.',
       }));
+    }
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { setTitleFilter, setPeriodFilter } = this.props;
+    const { title, period } = this.state;
+
+    if (!title) {
+      this.setState(() => ({
+        error: 'Keyword to search title should be provided.',
+      }));
+    } else {
+      setTitleFilter(title);
+      setPeriodFilter(period);
+      this.setState(() => ({ error: '', title: '', period: '' }));
     }
   }
 
@@ -50,21 +62,26 @@ class ListFilters extends React.Component {
     return (
       <div>
         {error && <p>{error}</p>}
-        <input
-          type="text"
-          placeholder="Search by Title"
-          value={title}
-          onChange={this.onTitleChange}
-        />
-        <input
-          type="number"
-          min="1800"
-          max="2020"
-          step="10"
-          onChange={this.onPeriodChange}
-          placeholder="Search by Period"
-          value={period}
-        />
+        <form onSubmit={this.onSubmit}>
+          <input
+            type="text"
+            placeholder="Search by Title"
+            value={title}
+            onChange={this.onTitleChange}
+            name="title"
+          />
+          <input
+            type="number"
+            min="1800"
+            max="2020"
+            step="10"
+            onChange={this.onPeriodChange}
+            placeholder="Search by Period"
+            value={period}
+            name="period"
+          />
+          <button type="submit">Search</button>
+        </form>
       </div>
     );
   }

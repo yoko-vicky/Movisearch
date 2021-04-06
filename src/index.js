@@ -7,40 +7,47 @@ import { addMovie } from './actions/movies';
 import './assets/styles/style.scss';
 
 import getListData from './helpers/getListData';
+import getVisibleMovies from './selectors/movies';
 
 const store = configureStore();
-store.subscribe(() => {
-  const { movies, filters } = store.getState();
-  // eslint-disable-next-line no-console
-  console.log('MoviesStore:', movies);
-  // eslint-disable-next-line no-console
-  console.log('FiltersStore:', filters);
-  // eslint-disable-next-line no-unused-vars
-  // const visibleExpenses = getVisibleExpenses(expenses, filters);
-  // console.log(visibleExpenses);
-});
 
 const setDataToStore = (query) => {
   getListData(query).then((data) => {
-    console.log(data);
+    const { movies } = store.getState();
     data.forEach((movie) => {
-      store.dispatch(addMovie({
-        imdbID: movie.imdbID,
-        title: movie.Title,
-        genre: movie.Genre,
-        year: movie.Year,
-        plot: movie.Plot,
-        posterURL: movie.Poster,
-        director: movie.Director,
-        actors: movie.actors,
-      }));
+      const index = movies.findIndex((movie) => movie.imdbID === data.imdbID);
+      if (index < 0) {
+        store.dispatch(addMovie({
+          imdbID: movie.imdbID,
+          title: movie.Title,
+          genre: movie.Genre,
+          year: movie.Year,
+          plot: movie.Plot,
+          posterURL: movie.Poster,
+          director: movie.Director,
+          actors: movie.actors,
+        }));
+      }
     });
   }).catch((error) => {
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.log('MYERROR', error);
   });
 };
 
-setDataToStore('harry');
+store.subscribe(() => {
+  const { movies, filters } = store.getState();
+  // eslint-disable-next-line no-console
+  // console.log('MoviesStore:', movies);
+  // eslint-disable-next-line no-console
+  // console.log('FiltersStore:', filters);
+  console.log('FiltersTitle:', filters.title);
+  // eslint-disable-next-line no-unused-vars
+  const visibleMovies = getVisibleMovies(movies, filters);
+  setDataToStore(filters.title);
+  console.log(movies);
+  console.log(visibleMovies);
+});
 
 const jsx = (
   <Provider store={store}>
@@ -49,4 +56,4 @@ const jsx = (
 );
 
 ReactDOM.render(jsx, document.getElementById('root'));
-getListData(store, 'harry');
+// setDataToStore('harry');

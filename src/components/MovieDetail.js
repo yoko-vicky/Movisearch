@@ -42,7 +42,7 @@ class MovieDetail extends React.Component {
       actors: update.actors,
       genre: update.genre,
     }));
-    updateMovie(movie.id, update);
+    updateMovie(movie.imdbID, update);
   };
 
   render() {
@@ -54,18 +54,18 @@ class MovieDetail extends React.Component {
     return (
       <div>
         <h2>{movie.title}</h2>
-        <img src={movie.posterURL} alt={movie.title} />
-        <p>{plot}</p>
-        <p>{director}</p>
-        <p>{actors}</p>
-        <p>{genre}</p>
+        {movie.posterURL && <img src={movie.posterURL} alt={movie.title} />}
+        {plot && <p>{plot}</p>}
+        {director && <p>{director}</p>}
+        {actors && <p>{actors}</p>}
+        {genre && <p>{genre}</p>}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, props) => ({
-  movie: state.movies.find((movie) => movie.id === props.match.params.id),
+  movie: state.movies.find((movie) => movie.imdbID === props.match.params.id),
 });
 
 const mapDispatchToProps = (dispatch) => ({

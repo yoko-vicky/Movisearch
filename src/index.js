@@ -14,18 +14,18 @@ const store = configureStore();
 const setDataToStore = (query) => {
   getListData(query).then((data) => {
     const { movies } = store.getState();
-    data.forEach((movie) => {
-      const index = movies.findIndex((movie) => movie.imdbID === data.imdbID);
+    data.forEach((item) => {
+      const index = movies.findIndex((movie) => movie.imdbID === item.imdbID);
       if (index < 0) {
         store.dispatch(addMovie({
-          imdbID: movie.imdbID,
-          title: movie.Title,
-          genre: movie.Genre,
-          year: movie.Year,
-          plot: movie.Plot,
-          posterURL: movie.Poster,
-          director: movie.Director,
-          actors: movie.actors,
+          imdbID: item.imdbID,
+          title: item.Title,
+          genre: item.Genre,
+          year: item.Year,
+          plot: item.Plot,
+          posterURL: item.Poster,
+          director: item.Director,
+          actors: item.actors,
         }));
       }
     });

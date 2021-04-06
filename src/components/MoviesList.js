@@ -8,15 +8,15 @@ const MoviesList = ({ movies }) => (
   <div>
     {movies.map((movie) => {
       const {
-        title, id, year, posterURL,
+        title, imdbID, year, posterURL,
       } = movie;
       return (
         <MovieListItem
           title={title}
-          id={id}
+          imdbID={imdbID}
           year={year}
           posterURL={posterURL}
-          key={id}
+          key={imdbID}
         />
       );
     })}

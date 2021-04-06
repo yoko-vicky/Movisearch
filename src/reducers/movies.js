@@ -7,7 +7,7 @@ const moviesReducer = (state = [], action) => {
       ];
     case 'UPDATE_MOVIE':
       // eslint-disable-next-line max-len
-      return state.map((movie) => (movie.id === action.id ? { ...movie, ...action.update } : movie));
+      return state.map((movie) => (movie.imdbID === action.id ? { ...movie, ...action.update } : movie));
     default:
       return state;
   }

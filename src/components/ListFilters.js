@@ -30,11 +30,11 @@ class ListFilters extends React.Component {
   onPeriodChange = (e) => {
     const period = e.target.value;
     this.setState(() => ({ period }));
-    if (period.match(/^[0-9]{4}$/) && period >= 1800) {
+    if (period.match(/^[0-9]{4}$/) && period >= 1900) {
       this.setState(() => ({ error: '' }));
     } else {
       this.setState(() => ({
-        error: 'Period should be provided 4 digit year number between 1800 and 2020.',
+        error: 'Period should be provided 4 digit year number between 1900 and 2020.',
       }));
     }
   }
@@ -51,7 +51,7 @@ class ListFilters extends React.Component {
     } else {
       setTitleFilter(title);
       setPeriodFilter(period);
-      this.setState(() => ({ error: '', title: '', period: '' }));
+      // this.setState(() => ({ error: '', title: '', period: '' }));
     }
   }
 
@@ -72,7 +72,7 @@ class ListFilters extends React.Component {
           />
           <input
             type="number"
-            min="1800"
+            min="1900"
             max="2020"
             step="10"
             onChange={this.onPeriodChange}

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import getMovieData from '../helpers/getMovieData';
 import noImg from '../assets/images/no-img.jpg';
 import { updateMovie } from '../actions/movies';
+import NotFound from './NotFound';
 
 class MovieDetail extends React.Component {
   constructor(props) {
@@ -53,46 +54,48 @@ class MovieDetail extends React.Component {
 
     return (
       <div className="container pdb">
-        <div className="movie">
-          <div className="movie__image-wrap">
-            <img src={Poster === 'N/A' ? noImg : Poster} alt={Title || `Movie-${imdbID}`} className="movie__image" />
-          </div>
-          <div className="movie__title-wrap">
-            <h2 className="movie__title">{Title}</h2>
-            <div className="movie__year">{Year}</div>
-          </div>
-          <div className="movie__text-wrap">
-            {Plot && <p className="movie__plot movie__spec">{Plot}</p>}
-            {Director && (
-            <div className="movie__director movie__spec">
-              <h3 className="movie__spec__title">
-                <span className="iconify" data-icon="bx:bxs-camera-movie" data-inline="false" />
-                Director:
-              </h3>
-              <p className="movie__spec__text">{Director}</p>
+        {Title === undefined ? <NotFound /> : (
+          <div className="movie">
+            <div className="movie__image-wrap">
+              <img src={Poster === 'N/A' ? noImg : Poster} alt={Title || `Movie-${imdbID}`} className="movie__image" />
             </div>
-            )}
-            {Actors && (
-            <div className="movie__actors movie__spec">
-              <h3 className="movie__spec__title">
-                <span className="iconify" data-icon="mdi:dance-ballroom" data-inline="false" />
-                Actors:
-              </h3>
-              <p className="movie__spec__text">{Actors}</p>
+            <div className="movie__title-wrap">
+              <h2 className="movie__title">{Title}</h2>
+              <div className="movie__year">{Year}</div>
             </div>
-            )}
-            {Genre && (
-            <div className="movie__genre movie__spec">
-              <h3 className="movie__spec__title">
-                <span className="iconify" data-icon="ri:movie-2-fill" data-inline="false" />
-                Genre:
-              </h3>
-              <p className="movie__spec__text">{Genre}</p>
+            <div className="movie__text-wrap">
+              {Plot && <p className="movie__plot movie__spec">{Plot}</p>}
+              {Director && (
+              <div className="movie__director movie__spec">
+                <h3 className="movie__spec__title">
+                  <span className="iconify" data-icon="bx:bxs-camera-movie" data-inline="false" />
+                  Director:
+                </h3>
+                <p className="movie__spec__text">{Director}</p>
+              </div>
+              )}
+              {Actors && (
+              <div className="movie__actors movie__spec">
+                <h3 className="movie__spec__title">
+                  <span className="iconify" data-icon="mdi:dance-ballroom" data-inline="false" />
+                  Actors:
+                </h3>
+                <p className="movie__spec__text">{Actors}</p>
+              </div>
+              )}
+              {Genre && (
+              <div className="movie__genre movie__spec">
+                <h3 className="movie__spec__title">
+                  <span className="iconify" data-icon="ri:movie-2-fill" data-inline="false" />
+                  Genre:
+                </h3>
+                <p className="movie__spec__text">{Genre}</p>
+              </div>
+              )}
             </div>
-            )}
+            <Link to="/" className="btn movie__btn">Back to Home</Link>
           </div>
-          <Link to="/" className="btn movie__btn">Back to Home</Link>
-        </div>
+        )}
       </div>
     );
   }

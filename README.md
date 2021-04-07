@@ -10,7 +10,9 @@
 
 ## About the Project
 
-This project is built as a React & Redux Capstone project at Microverse.
+This project was built as a React & Redux Capstone project at Microverse.
+It is based on the concept and requirements of "Catalogue of Recipes".
+
 A list of commonly used resources that I find helpful is listed in the acknowledgments.
 
 
@@ -41,6 +43,7 @@ To get a local copy up and running follow these simple example steps.
 e.g. $ git clone https://github.com/yourUsername/yourProjectName 
 7. Press Enter. Your local copy will be created. 
 8. To run the server in your local environment, run `npm start`
+9. To run the tests, run `npm test`
 
 ## Author
 
@@ -78,4 +81,4 @@ This project is [MIT](./LICENSE) licensed.
 * [Heroku](https://dashboard.heroku.com/)
 * [iconify](https://iconify.design/icon-sets/)
 * [Pixabay](https://pixabay.com/)
-* [OMDb API](http://www.omdbapi.com/)
+* [OMDb API](https://www.omdbapi.com/)

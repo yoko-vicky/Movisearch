@@ -1,14 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoviesList should match with snapshot 1`] = `
-<div>
-  <p
-    className="error-msg"
-  >
-    Sorry, any movies have not been found. Try to search again!
-  </p>
-  <div
-    className="movies"
-  />
-</div>
-`;
+exports[`MoviesList should match with snapshot 1`] = `[Function]`;

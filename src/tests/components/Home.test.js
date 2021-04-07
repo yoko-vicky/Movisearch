@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import MoviesList from '../../components/MoviesList';
+import Home from '../../components/Home';
 import createTestStore from '../fixtures/createTestStore';
 
-describe('MoviesList', () => {
+describe('Home', () => {
   let store;
   beforeEach(() => {
     store = createTestStore();
@@ -15,7 +15,7 @@ describe('MoviesList', () => {
   test('should render the initial message before users search a movie', async () => {
     const { findByText } = render(
       <Provider store={store}>
-        <MoviesList />
+        <Home />
       </Provider>,
     );
     await findByText('Sorry, any movies have not been found. Try to search again!');
@@ -25,7 +25,7 @@ describe('MoviesList', () => {
     const jsx = (
       <Provider store={store}>
         <BrowserRouter>
-          <MoviesList />
+          <Home />
         </BrowserRouter>
       </Provider>
     );

@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import MoviesList from '../../components/MoviesList';
+import ListFilters from '../../components/ListFilters';
 import createTestStore from '../fixtures/createTestStore';
 
-describe('MoviesList', () => {
+describe('ListFilters', () => {
   let store;
   beforeEach(() => {
     store = createTestStore();
@@ -15,17 +15,17 @@ describe('MoviesList', () => {
   test('should render the initial message before users search a movie', async () => {
     const { findByText } = render(
       <Provider store={store}>
-        <MoviesList />
+        <ListFilters />
       </Provider>,
     );
-    await findByText('Sorry, any movies have not been found. Try to search again!');
+    await findByText('2020-2021');
   });
 
   test('should match with snapshot', () => {
     const jsx = (
       <Provider store={store}>
         <BrowserRouter>
-          <MoviesList />
+          <ListFilters />
         </BrowserRouter>
       </Provider>
     );

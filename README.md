@@ -11,7 +11,27 @@
 ## About the Project
 
 This project was built as a React & Redux Capstone project at Microverse.
-It is based on the concept and requirements of "Catalogue of Recipes".
+It is based on the idea of a "Catalogue of Recipes" which is a single-page application with React and Redux.
+
+It shows a browsable list of movies that users can filter and access to the details of each movie. Every page, the main page, and pages for each item have a unique route within the Single Page Application, SPA.
+
+I deployed this app to Heroku, so it’s accessible online.
+The data is retrieved from the Open Movie Database, [OMDb API](https://www.omdbapi.com/).
+With this API, this app fetches the list data of movies based on the user’s input. 
+And the retrieved data is stored in the Redux store.
+
+Also, it retrieves the particular movie data by searching a unique id in the background and update the data in the Redux store only when the unique id matches the data of the store.
+
+This web app has 3 types of pages:
+
+- one page with a list of items that could be filtered by some parameters
+In this project, it’s a list of movies that can be filtered by the title and the year of the movie.
+
+- one page for the item details
+In this project, it’s the movie detail page.
+
+- one page for not found
+If users input the wrong path directly, the app shows the 404 page.
 
 A list of commonly used resources that I find helpful is listed in the acknowledgments.
 
@@ -28,6 +48,11 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 ## Live Demo
 
 [Live Demo Link](https://catalogue-of-movies-yoko.herokuapp.com/)
+
+
+## Video Description
+
+[Video description for this project](https://youtu.be/eg_REpJqK8Q)
 
 
 ## Getting Started

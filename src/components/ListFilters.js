@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setTitleFilter, setPeriodFilter } from '../actions/filters';
+import { addMovies } from '../actions/movies';
 import periods from '../helpers/periods';
+import getListData from '../helpers/getListData';
 
 class ListFilters extends React.Component {
   constructor(props) {
@@ -35,7 +37,7 @@ class ListFilters extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { setTitleFilter, setPeriodFilter } = this.props;
+    const { setTitleFilter, setPeriodFilter, addMovies } = this.props;
     const { title, period } = this.state;
 
     if (!title) {
@@ -45,6 +47,11 @@ class ListFilters extends React.Component {
     } else {
       setTitleFilter(title.trim().toLowerCase());
       setPeriodFilter(period);
+      getListData(title.trim().toLowerCase()).then((data) => {
+        addMovies(data);
+      }).catch((error) => {
+        this.setState(() => ({ error }));
+      });
     }
   }
 
@@ -101,16 +108,19 @@ class ListFilters extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
   setTitleFilter: (title) => dispatch(setTitleFilter(title)),
   setPeriodFilter: (period) => dispatch(setPeriodFilter(period)),
+  addMovies: (data) => dispatch(addMovies(data)),
 });
 
 ListFilters.propTypes = {
   setTitleFilter: PropTypes.func,
   setPeriodFilter: PropTypes.func,
+  addMovies: PropTypes.func,
 };
 
 ListFilters.defaultProps = {
   setTitleFilter: null,
   setPeriodFilter: null,
+  addMovies: null,
 };
 
 export default connect(undefined, mapDispatchToProps)(ListFilters);

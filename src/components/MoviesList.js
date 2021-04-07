@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import getVisibleMovies from '../selectors/movies';
+// import getVisibleMovies from '../selectors/movies';
 import MovieListItem from './MovieListItem';
 
 const MoviesList = ({ movies }) => (
@@ -10,14 +10,14 @@ const MoviesList = ({ movies }) => (
     <div className="movies">
       {movies.map((movie) => {
         const {
-          title, imdbID, year, posterURL,
+          Title, imdbID, Year, Poster,
         } = movie;
         return (
           <MovieListItem
-            title={title}
+            Title={Title}
             imdbID={imdbID}
-            year={year}
-            posterURL={posterURL}
+            Year={Year}
+            Poster={Poster}
             key={imdbID}
           />
         );
@@ -27,7 +27,8 @@ const MoviesList = ({ movies }) => (
 );
 
 const mapStateToProps = (state) => ({
-  movies: getVisibleMovies(state.movies, state.filters),
+  // movies: getVisibleMovies(state.movies, state.filters),
+  movies: state.movies,
 });
 
 MoviesList.propTypes = {

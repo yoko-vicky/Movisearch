@@ -20,7 +20,7 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 
 ## Live Demo
 
-[Live Demo Link](#)
+[Live Demo Link](https://catalogue-of-movies-yoko.herokuapp.com/)
 
 
 ## Getting Started

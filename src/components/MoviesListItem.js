@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import noImg from '../assets/images/no-img.jpg';
 
-const MovieListItem = ({
+const MoviesListItem = ({
   Title, imdbID, Year, Poster,
 }) => (
   <div className="movies__item">
@@ -17,18 +17,18 @@ const MovieListItem = ({
   </div>
 );
 
-MovieListItem.propTypes = {
+MoviesListItem.propTypes = {
   imdbID: PropTypes.string,
   Title: PropTypes.string,
   Year: PropTypes.string,
   Poster: PropTypes.string,
 };
 
-MovieListItem.defaultProps = {
+MoviesListItem.defaultProps = {
   imdbID: '',
   Title: '',
   Year: '',
   Poster: '',
 };
 
-export default MovieListItem;
+export default MoviesListItem;

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getVisibleMovies from '../selectors/movies';
-import MovieListItem from './MovieListItem';
+import MoviesListItem from './MoviesListItem';
 
 const MoviesList = ({ movies }) => (
   <div>
@@ -13,7 +13,7 @@ const MoviesList = ({ movies }) => (
           Title, imdbID, Year, Poster,
         } = movie;
         return (
-          <MovieListItem
+          <MoviesListItem
             Title={Title}
             imdbID={imdbID}
             Year={Year}

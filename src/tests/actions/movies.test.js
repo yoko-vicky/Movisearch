@@ -1,15 +1,9 @@
 import { addMovies, updateMovie } from '../../actions/movies';
+import movies from '../fixtures/movies';
+import updateMovieObj from '../fixtures/updateMovieObj';
 
 describe('Action movies', () => {
   test('should return addMovies action object with a given text', () => {
-    const movies = [
-      {
-        imdbID: 'tt12345', Title: 'Harry Potter', Year: '2007', type: 'movie', Poster: 'N/A',
-      },
-      {
-        imdbID: 'tt98765', Title: 'Terminal', Year: '2006', type: 'movie', Poster: 'N/A',
-      },
-    ];
     const action = addMovies(movies);
     expect(action).toEqual({
       type: 'ADD_MOVIES',
@@ -26,18 +20,12 @@ describe('Action movies', () => {
   });
 
   test('should return updateMovie action object with a given text', () => {
-    const update = {
-      Plot: 'This movie is amazing. Wacth it right away!',
-      Director: 'Yoko Saka',
-      Actors: 'Tom Hanks, Yoko Saka',
-      Genre: 'Comedy, Fantasy',
-    };
     const id = 'tt12345';
-    const action = updateMovie(id, update);
+    const action = updateMovie(id, updateMovieObj);
     expect(action).toEqual({
       type: 'UPDATE_MOVIE',
       id,
-      update,
+      update: updateMovieObj,
     });
   });
 

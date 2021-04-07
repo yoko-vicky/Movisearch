@@ -91,7 +91,7 @@ class ListFilters extends React.Component {
             className="btn grey"
             onClick={this.onReset}
           >
-            Reset
+            Clear
           </button>
         </form>
       </div>

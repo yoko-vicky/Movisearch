@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setTitleFilter, setPeriodFilter } from '../actions/filters';
-import { addMovies } from '../actions/movies';
 import periods from '../helpers/periods';
-import getListData from '../helpers/getListData';
 
 class ListFilters extends React.Component {
   constructor(props) {
@@ -12,20 +10,12 @@ class ListFilters extends React.Component {
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onPeriodChange = this.onPeriodChange.bind(this);
     this.onReset = this.onReset.bind(this);
-    this.runGetMovies = this.runGetMovies.bind(this);
+    const { filters } = this.props;
     this.state = {
-      title: '',
-      period: 'All',
+      title: filters.title || '',
+      period: filters.period || 'All',
       error: '',
     };
-  }
-
-  componentDidMount() {
-    this.runGetMovies();
-  }
-
-  componentDidUpdate() {
-    this.runGetMovies();
   }
 
   onTitleChange = (e) => {
@@ -42,16 +32,6 @@ class ListFilters extends React.Component {
   onPeriodChange = (e) => {
     const period = e.target.value;
     this.setState(() => ({ period }));
-  }
-
-  runGetMovies = () => {
-    const { addMovies } = this.props;
-    const { title } = this.state;
-    getListData(title.trim().toLowerCase()).then((data) => {
-      addMovies(data);
-    }).catch((error) => {
-      this.setState(() => ({ error }));
-    });
   }
 
   onSubmit = (e) => {
@@ -119,22 +99,25 @@ class ListFilters extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  filters: state.filters,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setTitleFilter: (title) => dispatch(setTitleFilter(title)),
   setPeriodFilter: (period) => dispatch(setPeriodFilter(period)),
-  addMovies: (data) => dispatch(addMovies(data)),
 });
 
 ListFilters.propTypes = {
   setTitleFilter: PropTypes.func,
   setPeriodFilter: PropTypes.func,
-  addMovies: PropTypes.func,
+  filters: PropTypes.instanceOf(Object),
 };
 
 ListFilters.defaultProps = {
   setTitleFilter: null,
   setPeriodFilter: null,
-  addMovies: null,
+  filters: {},
 };
 
-export default connect(undefined, mapDispatchToProps)(ListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(ListFilters);

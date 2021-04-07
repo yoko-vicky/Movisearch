@@ -27,7 +27,7 @@ MovieListItem.propTypes = {
 MovieListItem.defaultProps = {
   imdbID: '',
   Title: '',
-  Year: 2000,
+  Year: '',
   Poster: '',
 };
 

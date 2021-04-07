@@ -12,11 +12,20 @@ class ListFilters extends React.Component {
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onPeriodChange = this.onPeriodChange.bind(this);
     this.onReset = this.onReset.bind(this);
+    this.runGetMovies = this.runGetMovies.bind(this);
     this.state = {
       title: '',
       period: 'All',
       error: '',
     };
+  }
+
+  componentDidMount() {
+    this.runGetMovies();
+  }
+
+  componentDidUpdate() {
+    this.runGetMovies();
   }
 
   onTitleChange = (e) => {
@@ -35,9 +44,19 @@ class ListFilters extends React.Component {
     this.setState(() => ({ period }));
   }
 
+  runGetMovies = () => {
+    const { addMovies } = this.props;
+    const { title } = this.state;
+    getListData(title.trim().toLowerCase()).then((data) => {
+      addMovies(data);
+    }).catch((error) => {
+      this.setState(() => ({ error }));
+    });
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
-    const { setTitleFilter, setPeriodFilter, addMovies } = this.props;
+    const { setTitleFilter, setPeriodFilter } = this.props;
     const { title, period } = this.state;
 
     if (!title) {
@@ -47,11 +66,6 @@ class ListFilters extends React.Component {
     } else {
       setTitleFilter(title.trim().toLowerCase());
       setPeriodFilter(period);
-      getListData(title.trim().toLowerCase()).then((data) => {
-        addMovies(data);
-      }).catch((error) => {
-        this.setState(() => ({ error }));
-      });
     }
   }
 

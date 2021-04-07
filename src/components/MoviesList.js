@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import getVisibleMovies from '../selectors/movies';
+import getVisibleMovies from '../selectors/movies';
 import MovieListItem from './MovieListItem';
 
 const MoviesList = ({ movies }) => (
@@ -27,8 +27,7 @@ const MoviesList = ({ movies }) => (
 );
 
 const mapStateToProps = (state) => ({
-  // movies: getVisibleMovies(state.movies, state.filters),
-  movies: state.movies,
+  movies: getVisibleMovies(state.movies, state.filters),
 });
 
 MoviesList.propTypes = {

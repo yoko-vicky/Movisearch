@@ -3,7 +3,7 @@ export const addMovies = (movies = []) => ({
   movies,
 });
 
-export const updateMovie = (id, update) => ({
+export const updateMovie = (id = '', update = {}) => ({
   type: 'UPDATE_MOVIE',
   id,
   update,

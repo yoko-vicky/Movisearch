@@ -1,6 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 # Catalogue of Movies with React & Redux
-<!-- ![Top Page Screenshot](./screenshot.png) -->
+
+**Search Result** 
+![Search Result Screenshot](./screenshot-1.png)
+
+**Movie Detail** 
+![Detail Page Screenshot](./screenshot-2.png)
 
 
 ## About the Project

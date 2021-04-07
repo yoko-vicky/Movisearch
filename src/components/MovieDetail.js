@@ -52,7 +52,7 @@ class MovieDetail extends React.Component {
     } = movie;
 
     return (
-      <div className="container">
+      <div className="container pdb">
         <div className="movie">
           <div className="movie__image-wrap">
             <img src={Poster === 'N/A' ? noImg : Poster} alt={Title || `Movie-${imdbID}`} className="movie__image" />

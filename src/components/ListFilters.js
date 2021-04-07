@@ -20,11 +20,11 @@ class ListFilters extends React.Component {
 
   onTitleChange = (e) => {
     const title = e.target.value;
-    if (title.match(/^[a-zA-Z0-9\s]{0,15}$/g)) {
+    if (title.match(/^[a-zA-Z0-9\s]{0,30}$/g)) {
       this.setState(() => ({ title, error: '' }));
     } else {
       this.setState(() => ({
-        error: 'Title should be provided less than 15 characters.',
+        error: 'Title should be provided less than 30 characters.',
       }));
     }
   }

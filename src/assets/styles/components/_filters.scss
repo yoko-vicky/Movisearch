@@ -30,6 +30,14 @@
     }
   }
 
+  &__button {
+    margin-bottom: 1rem;
+
+    @include mq(tab) {
+      margin-bottom: 0;
+    }
+  }
+
   .error-msg {
     width: 100%;
   }

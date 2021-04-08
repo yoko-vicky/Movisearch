@@ -19,8 +19,10 @@ class Home extends React.Component {
     this.runGetMovies();
   }
 
-  componentDidUpdate() {
-    this.runGetMovies();
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.error) {
+      this.runGetMovies();
+    }
   }
 
   runGetMovies = () => {

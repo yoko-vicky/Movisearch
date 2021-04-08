@@ -11,14 +11,19 @@ class MovieDetail extends React.Component {
   constructor(props) {
     super(props);
     this.getMovie = this.getMovie.bind(this);
+    this.state = {
+      error: '',
+    };
   }
 
   componentDidMount() {
     this.runGetMovie();
   }
 
-  componentDidUpdate() {
-    this.runGetMovie();
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.error) {
+      this.runGetMovie();
+    }
   }
 
   runGetMovie = () => {
@@ -34,16 +39,20 @@ class MovieDetail extends React.Component {
   getMovie = async () => {
     const { movie } = this.props;
     const { updateMovie } = this.props;
-    const movieData = await getMovieData(movie.imdbID);
-    const {
-      Plot, Director, Actors, Genre,
-    } = movieData;
-    updateMovie(movie.imdbID, {
-      Plot,
-      Director,
-      Actors,
-      Genre,
-    });
+    try {
+      const movieData = await getMovieData(movie.imdbID);
+      const {
+        Plot, Director, Actors, Genre,
+      } = movieData;
+      updateMovie(movie.imdbID, {
+        Plot,
+        Director,
+        Actors,
+        Genre,
+      });
+    } catch {
+      this.setState(() => ({ error: 'Sorry, unable to fetch the data.' }));
+    }
   };
 
   render() {
@@ -51,9 +60,11 @@ class MovieDetail extends React.Component {
     const {
       Poster, imdbID, Title, Year, Plot, Director, Actors, Genre,
     } = movie;
+    const { error } = this.state;
 
     return (
       <div className="container pdb">
+        {error && <p className="error-msg">{error}</p>}
         {Title === undefined ? <NotFound /> : (
           <div className="movie">
             <div className="movie__image-wrap">

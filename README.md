@@ -50,11 +50,6 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 [Live Demo Link](https://catalogue-of-movies-yoko.herokuapp.com/)
 
 
-## Video Description
-
-[Video description for this project](https://youtu.be/eg_REpJqK8Q)
-
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.

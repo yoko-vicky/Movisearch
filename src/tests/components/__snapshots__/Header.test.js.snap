@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header with Link should match with snapshot 1`] = `
+<header
+  className="header"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <h1
+      className="header__title"
+    >
+      MoviSearch
+    </h1>
+  </a>
+</header>
+`;

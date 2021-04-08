@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap');
+
+// COLORS
+$primary-color: #fdfda8;
+$secondary-color: #ff40ef;
+$grey: #777;
+$light-grey-1: #ccc;
+$light-grey-2: #f6f6f6;
+$white: #fff;
+$black: #202020;
+$half-black: rgba($black, 0.5);
+$trans-black: rgba($black, 0.9);
+
+// FONT
+$default-font-size: 1.4rem;
+$logo-font: 'Monoton', cursive;
+$main-font: 'Montserrat', sans-serif;
+
+// WIDTH
+$default-width: 96%;
+$max-width: 120rem;
+
+// HEIGHT
+$mb-header-height: 4.6rem;
+$tab-header-height: 5.4rem;

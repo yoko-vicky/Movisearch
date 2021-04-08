@@ -1,0 +1,28 @@
+.header {
+  width: 100%;
+  height: $mb-header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $trans-black;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  @include mq(tab) {
+    height: $tab-header-height;
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: $primary-color;
+
+    @include logoFont;
+
+    @include mq(tab) {
+      font-size: 3rem;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer with Link should match with snapshot 1`] = `
+<footer
+  className="footer"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <span
+      className="footer__logo"
+    >
+      MoviSearch
+    </span>
+  </a>
+  <div
+    className="footer__copyright"
+  >
+    <a
+      href="/https://github.com/yocosaka"
+      onClick={[Function]}
+      rel="noreferrer"
+      target="_blank"
+    >
+      © Yoko Saka
+    </a>
+  </div>
+</footer>
+`;

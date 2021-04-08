@@ -1,0 +1,23 @@
+.whole-container {
+  position: relative;
+}
+
+.container {
+  background: $light-grey-2;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: $mb-header-height;
+  min-height: 88vh;
+
+  @include mq(tab) {
+    padding-top: $tab-header-height;
+  }
+
+  @include mq(laptap) {
+    padding-bottom: 4rem;
+  }
+
+  &.pdb {
+    padding-bottom: 4rem;
+  }
+}

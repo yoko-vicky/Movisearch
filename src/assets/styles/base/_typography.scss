@@ -1,0 +1,24 @@
+html {
+  // font-size: 50%; // 1rem = 8px (8/16)
+  font-size: 62.5%; // 1rem = 8px (8/16)
+
+  @include mq(tab) {
+    font-size: 62.5%; // 1rem = 10px (10/16)
+  }
+}
+
+body,
+select,
+input,
+button {
+  font-family: $main-font;
+  line-height: 1.7;
+  font-size: $default-font-size;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: $black;
+}
+
+p {
+  font-size: $default-font-size;
+}

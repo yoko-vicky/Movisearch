@@ -9,29 +9,12 @@
 
 
 ## About the Project
+Movisearch was built based on the idea of a "Catalogue of Recipes" which is a single-page application with React and Redux, showing a browsable list of movies that users can filter and access to the details of each movie.
 
-This project was built as a React & Redux Capstone project at Microverse.
-It is based on the idea of a "Catalogue of Recipes" which is a single-page application with React and Redux.
+The movies' data are retrieved from the Open Movie Database, [OMDb API](https://www.omdbapi.com/).
+Once you input a keyword and choose the ages that the movie released, the app will retrieve the movies list from this API, and show them as a list in main page.
 
-It shows a browsable list of movies that users can filter and access to the details of each movie. Every page, the main page, and pages for each item have a unique route within the Single Page Application, SPA.
-
-I deployed this app to Heroku, so it’s accessible online.
-The data is retrieved from the Open Movie Database, [OMDb API](https://www.omdbapi.com/).
-With this API, this app fetches the list data of movies based on the user’s input. 
-And the retrieved data is stored in the Redux store.
-
-Also, it retrieves the particular movie data by searching a unique id in the background and update the data in the Redux store only when the unique id matches the data of the store.
-
-This web app has 3 types of pages:
-
-- one page with a list of items that could be filtered by some parameters
-In this project, it’s a list of movies that can be filtered by the title and the year of the movie.
-
-- one page for the item details
-In this project, it’s the movie detail page.
-
-- one page for not found
-If users input the wrong path directly, the app shows the 404 page.
+When you click a certain movie's image from the list, it's going to show the movie's detail in the detail page.
 
 A list of commonly used resources that I find helpful is listed in the acknowledgments.
 
@@ -41,12 +24,11 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-* [HTML5](https://en.wikipedia.org/wiki/HTML5)
-* [SASS](https://sass-lang.com/)
+* HTML5
+* SCSS
 
 
 ## Live Demo
-
 [Live Demo Link](https://catalogue-of-movies-yoko.herokuapp.com/)
 
 
@@ -62,8 +44,9 @@ To get a local copy up and running follow these simple example steps.
 6. Type git clone, and then paste the URL you copied in Step 3. <br>
 e.g. $ git clone https://github.com/yourUsername/yourProjectName 
 7. Press Enter. Your local copy will be created. 
-8. To run the server in your local environment, run `npm start`
-9. To run the tests, run `npm test`
+8. To install all dependencies, run `npm install`
+9. To run the server in your local environment, run `npm start`
+10. To run the tests, run `npm test`
 
 ## Author
 
@@ -97,8 +80,13 @@ This project is [MIT](./LICENSE) licensed.
 
 
 ## Acknowledgements
+* [OMDb API](https://www.omdbapi.com/)
+* [Axios](https://github.com/axios/axios)
+* [React Testing Library](https://github.com/testing-library/react-testing-library)
+* [uuid](https://github.com/uuidjs/uuid)
+* [eslint](https://eslint.org/)
+* [stylelint](https://stylelint.io/)
 * [Prop Types](https://www.npmjs.com/package/prop-types)
 * [Heroku](https://dashboard.heroku.com/)
 * [iconify](https://iconify.design/icon-sets/)
 * [Pixabay](https://pixabay.com/)
-* [OMDb API](https://www.omdbapi.com/)

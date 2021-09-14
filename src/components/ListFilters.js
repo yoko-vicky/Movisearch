@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { BsSearch } from 'react-icons/bs';
 import { setTitleFilter, setPeriodFilter } from '../actions/filters';
 import periods from '../helpers/periods';
 
@@ -83,7 +84,7 @@ class ListFilters extends React.Component {
             ))}
           </select>
           <button type="submit" className="filters__button btn">
-            <span className="iconify" data-icon="gg:search" data-inline="false" />
+            <BsSearch />
             Search
           </button>
           <button

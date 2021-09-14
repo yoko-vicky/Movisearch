@@ -44,9 +44,10 @@ To get a local copy up and running follow these simple example steps.
 6. Type git clone, and then paste the URL you copied in Step 3. <br>
 e.g. $ git clone https://github.com/yourUsername/yourProjectName 
 7. Press Enter. Your local copy will be created. 
-8. To install all dependencies, run `npm install`
-9. To run the server in your local environment, run `npm start`
-10. To run the tests, run `npm test`
+8. Create .env file in the local folder, inside it, write your own [OMDb API](https://www.omdbapi.com/) key like `REACT_APP_OMDB_API_KEY=xxxxxxx`. It's free to issue your key.
+9. To install all dependencies, run `npm install`
+10. To run the server in your local environment, run `npm start`
+11. To run the tests, run `npm test`
 
 ## Author
 
@@ -88,5 +89,5 @@ This project is [MIT](./LICENSE) licensed.
 * [stylelint](https://stylelint.io/)
 * [Prop Types](https://www.npmjs.com/package/prop-types)
 * [Heroku](https://dashboard.heroku.com/)
-* [iconify](https://iconify.design/icon-sets/)
 * [Pixabay](https://pixabay.com/)
+* [React Icons](https://react-icons.github.io/react-icons/)

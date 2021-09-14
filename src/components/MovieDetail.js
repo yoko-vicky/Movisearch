@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { BiCameraMovie } from 'react-icons/bi';
+import { SiPostwoman } from 'react-icons/si';
+import { MdLocalMovies } from 'react-icons/md';
 import getMovieData from '../helpers/getMovieData';
 import noImg from '../assets/images/no-img.jpg';
 import { updateMovie } from '../actions/movies';
@@ -79,7 +82,7 @@ class MovieDetail extends React.Component {
               {Director && (
               <div className="movie__director movie__spec">
                 <h3 className="movie__spec__title">
-                  <span className="iconify" data-icon="bx:bxs-camera-movie" data-inline="false" />
+                  <BiCameraMovie />
                   Director:
                 </h3>
                 <p className="movie__spec__text">{Director}</p>
@@ -88,7 +91,7 @@ class MovieDetail extends React.Component {
               {Actors && (
               <div className="movie__actors movie__spec">
                 <h3 className="movie__spec__title">
-                  <span className="iconify" data-icon="mdi:dance-ballroom" data-inline="false" />
+                  <SiPostwoman />
                   Actors:
                 </h3>
                 <p className="movie__spec__text">{Actors}</p>
@@ -97,7 +100,7 @@ class MovieDetail extends React.Component {
               {Genre && (
               <div className="movie__genre movie__spec">
                 <h3 className="movie__spec__title">
-                  <span className="iconify" data-icon="ri:movie-2-fill" data-inline="false" />
+                  <MdLocalMovies />
                   Genre:
                 </h3>
                 <p className="movie__spec__text">{Genre}</p>

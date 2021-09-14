@@ -36,6 +36,10 @@
     @include mq(tab) {
       margin-bottom: 0;
     }
+
+    svg{
+      margin-right: 0.5rem;
+    }
   }
 
   .error-msg {

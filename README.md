@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
-# Catalogue of Movies with React & Redux
+# Movisearch - Catalogue of Movies with React & Redux
 
 **Search Result** 
 ![Search Result Screenshot](./screenshot-1.png)

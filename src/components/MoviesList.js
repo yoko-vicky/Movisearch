@@ -11,7 +11,6 @@ const MoviesList = ({ movies }) => (
     <div className="movies">
       {movies.map((movie) => (
         <MoviesListItem
-          movie={movie}
           Title={movie.Title}
           imdbID={movie.imdbID}
           Year={movie.Year}

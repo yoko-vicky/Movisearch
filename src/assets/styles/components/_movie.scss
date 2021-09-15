@@ -3,6 +3,7 @@
   width: 100%;
   margin: 0 auto;
   max-width: 80rem;
+  position: relative;
 
   &__image-wrap {
     width: 100%;
@@ -85,5 +86,18 @@
   &__btn {
     max-width: 30rem;
     margin: 0 auto;
+  }
+
+  &__star {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $primary-color;
+    font-size: 3rem;
+    background-color: $half-black;
+    padding: 1rem;
+    border-radius: 3px;
+    display: flex;
+    cursor: pointer;
   }
 }

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { BiCameraMovie } from 'react-icons/bi';
 import { SiPostwoman } from 'react-icons/si';
 import { MdLocalMovies } from 'react-icons/md';
 import getMovieData from '../helpers/getMovieData';
 import noImg from '../assets/images/no-img.jpg';
-import { updateMovie } from '../actions/movies';
+import { updateMovie, removeFavorite, addFavorite } from '../actions/movies';
 import NotFound from '../components/NotFound';
 
-const MovieDetail = ({ movie, updateMovie }) => {
+const MovieDetail = ({
+  movie, updateMovie, removeFavorite, addFavorite,
+}) => {
   const [error, setError] = useState('');
 
   const getMovie = async () => {
@@ -39,9 +42,17 @@ const MovieDetail = ({ movie, updateMovie }) => {
     }
   };
 
+  const toggleFavoriteState = () => {
+    if (movie.favorite) {
+      removeFavorite(movie.imdbID);
+    } else {
+      addFavorite(movie.imdbID);
+    }
+  };
+
   useEffect(() => {
     runGetMovie();
-    console.log(movie);
+    console.log(movie.favorite);
   }, [movie]);
 
   const {
@@ -90,6 +101,10 @@ const MovieDetail = ({ movie, updateMovie }) => {
             )}
           </div>
           <Link to="/" className="btn movie__btn">Back to Home</Link>
+          <div className="movie__star" onClick={toggleFavoriteState} aria-hidden="true">
+            <FaStar />
+            <FaRegStar />
+          </div>
         </div>
       )}
     </div>
@@ -102,16 +117,22 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateMovie: (id, update) => dispatch(updateMovie(id, update)),
+  removeFavorite: (id) => dispatch(removeFavorite(id)),
+  addFavorite: (id) => dispatch(addFavorite(id)),
 });
 
 MovieDetail.propTypes = {
   movie: PropTypes.instanceOf(Object),
   updateMovie: PropTypes.func,
+  removeFavorite: PropTypes.func,
+  addFavorite: PropTypes.func,
 };
 
 MovieDetail.defaultProps = {
   movie: {},
   updateMovie: null,
+  removeFavorite: null,
+  addFavorite: null,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);

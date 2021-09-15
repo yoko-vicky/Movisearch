@@ -65,5 +65,18 @@
         font-size: 1.6rem;
       }
     }
+
+    &__star {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $primary-color;
+      font-size: 3rem;
+      background-color: $half-black;
+      padding: 1rem;
+      border-radius: 3px;
+      display: flex;
+      cursor: pointer;
+    }
   }
 }

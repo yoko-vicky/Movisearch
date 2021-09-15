@@ -41,6 +41,7 @@ const MovieDetail = ({ movie, updateMovie }) => {
 
   useEffect(() => {
     runGetMovie();
+    console.log(movie);
   }, [movie]);
 
   const {

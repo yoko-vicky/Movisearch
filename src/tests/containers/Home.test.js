@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Home from '../../components/Home';
+import Home from '../../containers/Home';
 import createTestStore from '../fixtures/createTestStore';
 
 describe('Home', () => {

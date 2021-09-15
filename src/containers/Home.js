@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ListFilters from '../components/ListFilters';
@@ -6,45 +6,28 @@ import MoviesList from '../components/MoviesList';
 import getListData from '../helpers/getListData';
 import { addMovies } from '../actions/movies';
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.runGetMovies = this.runGetMovies.bind(this);
-    this.state = {
-      error: '',
-    };
-  }
+const Home = ({ addMovies, filters }) => {
+  const [error, setError] = useState('');
 
-  componentDidMount() {
-    this.runGetMovies();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (!prevState.error) {
-      this.runGetMovies();
-    }
-  }
-
-  runGetMovies = () => {
-    const { addMovies, filters } = this.props;
+  const runGetMovies = () => {
     getListData(filters.title).then((data) => {
       addMovies(data);
     }).catch(() => {
-      this.setState(() => ({ error: 'Sorry, unable to fetch the data.' }));
+      setError('Sorry, unable to fetch the data.');
     });
-  }
+  };
+  useEffect(() => {
+    runGetMovies();
+  }, [filters]);
 
-  render() {
-    const { error } = this.state;
-    return (
-      <div className="container">
-        {error && <p className="error-msg">{error}</p>}
-        <ListFilters />
-        <MoviesList />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      {error && <p className="error-msg">{error}</p>}
+      <ListFilters />
+      <MoviesList />
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
   filters: state.filters,

@@ -1,108 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { BsSearch } from 'react-icons/bs';
 import { setTitleFilter, setPeriodFilter } from '../actions/filters';
 import periods from '../helpers/periods';
 
-class ListFilters extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onPeriodChange = this.onPeriodChange.bind(this);
-    this.onReset = this.onReset.bind(this);
-    const { filters } = this.props;
-    this.state = {
-      title: filters.title || '',
-      period: filters.period || 'All',
-      error: '',
-    };
-  }
+const ListFilters = (props) => {
+  const [title, setTitle] = useState('');
+  const [period, setPeriod] = useState('All');
+  const [error, setError] = useState('');
 
-  onTitleChange = (e) => {
-    const title = e.target.value;
-    if (title.match(/^[a-zA-Z0-9\s]{0,30}$/g)) {
-      this.setState(() => ({ title, error: '' }));
+  const onTitleChange = (e) => {
+    const inputTitle = e.target.value;
+    if (inputTitle.match(/^[a-zA-Z0-9\s]{0,30}$/g)) {
+      setTitle(inputTitle);
+      setError('');
     } else {
-      this.setState(() => ({
-        error: 'Title should be provided less than 30 characters.',
-      }));
+      setError('Title should be provided less than 30 characters.');
     }
-  }
+  };
 
-  onPeriodChange = (e) => {
-    const period = e.target.value;
-    this.setState(() => ({ period }));
-  }
+  const onPeriodChange = (e) => {
+    setPeriod(e.target.value);
+  };
 
-  onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    const { setTitleFilter, setPeriodFilter } = this.props;
-    const { title, period } = this.state;
 
     if (!title) {
-      this.setState(() => ({
-        error: 'Keyword to search title should be provided.',
-      }));
+      setError('Keyword to search title should be provided.');
     } else {
-      setTitleFilter(title.trim().toLowerCase());
-      setPeriodFilter(period);
+      setError('');
+      props.setTitleFilter(title.trim().toLowerCase());
+      props.setPeriodFilter(period);
     }
-  }
+  };
 
-  onReset = () => {
-    const { setTitleFilter, setPeriodFilter } = this.props;
-    this.setState(() => ({ title: '', period: 'All' }));
-    setTitleFilter('');
-    setPeriodFilter('All');
-  }
+  const onReset = () => {
+    setTitle('');
+    setPeriod('All');
+    setError('');
+    props.setTitleFilter('');
+    props.setPeriodFilter('All');
+  };
 
-  render() {
-    const {
-      title, period, error,
-    } = this.state;
-    return (
-      <div className="filters">
-        {error && <p className="error-msg">{error}</p>}
-        <form onSubmit={this.onSubmit} className="filters__form">
-          <input
-            type="text"
-            placeholder="Search by Title"
-            value={title}
-            onChange={this.onTitleChange}
-            name="title"
-            className="filters__input"
-          />
-          <select
-            name="period"
-            value={period}
-            onChange={this.onPeriodChange}
-            className="filters__select"
-          >
-            {periods.map((opt) => (
-              <option value={opt} key={opt}>{opt}</option>
-            ))}
-          </select>
-          <button type="submit" className="filters__button btn">
-            <BsSearch />
-            Search
-          </button>
-          <button
-            type="button"
-            className="btn grey"
-            onClick={this.onReset}
-          >
-            Clear
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = (state) => ({
-  filters: state.filters,
-});
+  return (
+    <div className="filters">
+      {error && <p className="error-msg">{error}</p>}
+      <form onSubmit={onSubmit} className="filters__form">
+        <input
+          type="text"
+          placeholder="Search by Title"
+          value={title}
+          onChange={onTitleChange}
+          name="title"
+          className="filters__input"
+        />
+        <select
+          name="period"
+          value={period}
+          onChange={onPeriodChange}
+          className="filters__select"
+        >
+          {periods.map((opt) => (
+            <option value={opt} key={opt}>{opt}</option>
+          ))}
+        </select>
+        <button type="submit" className="filters__button btn">
+          <BsSearch />
+          Search
+        </button>
+        <button
+          type="button"
+          className="btn grey"
+          onClick={onReset}
+        >
+          Clear
+        </button>
+      </form>
+    </div>
+  );
+};
 
 const mapDispatchToProps = (dispatch) => ({
   setTitleFilter: (title) => dispatch(setTitleFilter(title)),
@@ -112,13 +90,11 @@ const mapDispatchToProps = (dispatch) => ({
 ListFilters.propTypes = {
   setTitleFilter: PropTypes.func,
   setPeriodFilter: PropTypes.func,
-  filters: PropTypes.instanceOf(Object),
 };
 
 ListFilters.defaultProps = {
   setTitleFilter: null,
   setPeriodFilter: null,
-  filters: {},
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListFilters);
+export default connect(undefined, mapDispatchToProps)(ListFilters);

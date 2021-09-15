@@ -5,7 +5,7 @@ import { BsSearch } from 'react-icons/bs';
 import { setTitleFilter, setPeriodFilter } from '../actions/filters';
 import periods from '../helpers/periods';
 
-const ListFilters = (props) => {
+const ListFilters = ({ setTitleFilter, setPeriodFilter }) => {
   const [title, setTitle] = useState('');
   const [period, setPeriod] = useState('All');
   const [error, setError] = useState('');
@@ -31,8 +31,8 @@ const ListFilters = (props) => {
       setError('Keyword to search title should be provided.');
     } else {
       setError('');
-      props.setTitleFilter(title.trim().toLowerCase());
-      props.setPeriodFilter(period);
+      setTitleFilter(title.trim().toLowerCase());
+      setPeriodFilter(period);
     }
   };
 
@@ -40,8 +40,8 @@ const ListFilters = (props) => {
     setTitle('');
     setPeriod('All');
     setError('');
-    props.setTitleFilter('');
-    props.setPeriodFilter('All');
+    setTitleFilter('');
+    setPeriodFilter('All');
   };
 
   return (

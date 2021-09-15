@@ -8,7 +8,7 @@ import { MdLocalMovies } from 'react-icons/md';
 import getMovieData from '../helpers/getMovieData';
 import noImg from '../assets/images/no-img.jpg';
 import { updateMovie } from '../actions/movies';
-import NotFound from './NotFound';
+import NotFound from '../components/NotFound';
 
 class MovieDetail extends React.Component {
   constructor(props) {

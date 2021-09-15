@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ListFilters from './ListFilters';
-import MoviesList from './MoviesList';
+import ListFilters from '../components/ListFilters';
+import MoviesList from '../components/MoviesList';
 import getListData from '../helpers/getListData';
 import { addMovies } from '../actions/movies';
 

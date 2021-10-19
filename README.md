@@ -7,14 +7,15 @@
 **Movie Detail** 
 ![Detail Page Screenshot](./screenshot-2.png)
 
-
 ## About the Project
 Movisearch was built based on the idea of a "Catalogue of Recipes" which is a single-page application with React and Redux, showing a browsable list of movies that users can filter and access to the details of each movie.
 
 The movies' data are retrieved from the Open Movie Database, [OMDb API](https://www.omdbapi.com/).
-Once you input a keyword and choose the ages that the movie released, the app will retrieve the movies list from this API, and show them as a list in main page.
+Once you input a keyword and choose the ages that the movie released, the app will retrieve the movies list from this API, and show them as a list on the main page.
 
-When you click a certain movie's image from the list, it's going to show the movie's detail in the detail page.
+When you click a certain movie's image from the list, it's going to show the movie's detail on the detail page.
+
+Watch the explanation of this project on [YouTube](https://www.youtube.com/watch?v=vOBL0obe7_A) 
 
 A list of commonly used resources that I find helpful is listed in the acknowledgments.
 
@@ -31,6 +32,8 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 ## Live Demo
 [Live Demo Link](https://catalogue-of-movies-yoko.herokuapp.com/)
 
+## Video Explanation
+[YouTube](https://www.youtube.com/watch?v=vOBL0obe7_A) 
 
 ## Getting Started
 

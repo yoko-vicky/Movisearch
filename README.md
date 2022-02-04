@@ -15,8 +15,6 @@ Once you input a keyword and choose the ages that the movie released, the app wi
 
 When you click a certain movie's image from the list, it's going to show the movie's detail on the detail page.
 
-Watch the explanation of this project on [YouTube](https://www.youtube.com/watch?v=vOBL0obe7_A) 
-
 A list of commonly used resources that I find helpful is listed in the acknowledgments.
 
 

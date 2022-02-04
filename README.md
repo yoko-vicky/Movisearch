@@ -32,8 +32,6 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 ## Live Demo
 [Live Demo Link](https://catalogue-of-movies-yoko.herokuapp.com/)
 
-## Video Explanation
-[YouTube](https://www.youtube.com/watch?v=vOBL0obe7_A) 
 
 ## Getting Started
 
